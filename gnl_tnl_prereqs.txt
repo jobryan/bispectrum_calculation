@@ -1,0 +1,52 @@
+i_rsteps = 50
+i_Lsteps = 40
+i_lmax = 400
+
+i_nsims = 14
+
+
+cirrus:~/fnl_Planck/code/output
+
+ana:
+kl_31_ana_50_rsteps_40_Lsteps_400_lmax_1_gnl_0_tnl.dat <-- this has a patch of 0's...
+kl_31_ana_50_rsteps_40_Lsteps_400_lmax_1_gnl_1_tnl.dat
+kl_31_ana_50_rsteps_40_Lsteps_400_lmax_0_gnl_1_tnl.dat
+kl_22_ana_50_rsteps_40_Lsteps_400_lmax_1_gnl_1_tnl.dat
+kl_22_ana_50_rsteps_40_Lsteps_400_lmax_0_gnl_1_tnl.dat
+kl_22_ana_50_rsteps_40_Lsteps_400_lmax_1_gnl_0_tnl.dat
+
+sim:
+na_kl22_data_g_sim_0_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_10_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_11_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_12_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_13_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_1_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_2_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_3_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_4_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_5_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_6_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_7_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_8_50_rsteps_400_lmax.dat
+na_kl22_data_g_sim_9_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_0_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_10_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_11_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_12_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_13_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_1_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_2_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_3_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_4_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_5_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_6_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_7_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_8_50_rsteps_400_lmax.dat
+na_kl31_data_g_sim_9_50_rsteps_400_lmax.dat
+
+data:
+na_kl22_data_50_rsteps_400_lmax.dat
+na_kl31_data_50_rsteps_400_lmax.dat
+
+need:

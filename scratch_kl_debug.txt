@@ -1,0 +1,29 @@
+Process for kl_data from Joseph's paper (arxiv:1004.1409):
+
+(1) Calculate weighted Alm(r), Blm(r) -- Eqs. 51, 52
+(2) Calculate weighted A(r,n), B(r,n) -- Eqs. 51, 52
+(3) Calculate product maps (for each r) AB, BB, ABA, and ABB 
+	-- Eqs. 57, 58 (70-73)
+(4) Calculate 3-1 and 2-2 power spectra (for each r) ABA,B; ABB,B; AB,AB; 
+	and AB,BB -- Eq. 74
+(5) Integrate over r (or r1 and r2) -- Eqs. 70-73
+(6) Sum integrated power spectra -- Eq. 68, 69
+
+--------------------------------------------------------------------------------
+Process for kl_data used in kl_data.py:
+
+(1) Load Planck power spectrum, alpha, beta, and beam (na_cltt, 
+    na_alpha, na_beta, na_bl) (lines 133-209)
+(2) Create optimally weighted maps:
+    (a) Convert cltt to alm (na_alm) (line 217)
+    (b) For each r1, r2 value used in alpha, beta, multiply 
+        alpha / Cl * bl by alm (na_Almr1, na_Blmr1, na_Almr2, 
+        na_Blmr2) (lines 291-294)
+    (c) For each r1, r2 value used in alpha, beta, convert Alm, Blm 
+        to maps (na_Ar1n, na_Br1n, na_Ar2n, na_Br2n) (lines 298-310)
+(3) Calculate two-two and three-one power spectra
+    (a) For each r1, r2 value used in alpha, beta, multiply 
+        Alm * B^2lm and convert to cl (similarly for AB * B) 
+        (na_Jl_AB_ABr1, etc.) (lines 316-341)
+(4) Calculate full kurtosis power spectra
+    (a) Sum over all r values (na_kl22_data, na_kl31_data) (lines 345-357)

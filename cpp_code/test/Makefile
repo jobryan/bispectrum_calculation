@@ -1,0 +1,13 @@
+CFLAGS=-Wall -g
+
+all: 
+	g++-4.8 wigner.cpp -o wigner -std=c++11
+	g++-4.8 test_read.cpp -o test_read -std=c++11
+	mpic++ test_mpi.cpp -o test_mpi
+	g++-4.8 test_misc.cpp -o test_misc -std=c++11
+
+clean:
+	rm -f test_read
+	rm -f test_mpi
+	rm -f test_misc
+	rm -f test_write.txt

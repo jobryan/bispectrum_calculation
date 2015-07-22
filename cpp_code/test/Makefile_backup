@@ -1,0 +1,14 @@
+CFLAGS=-Wall -g
+
+all: 
+	/home/jobryan/bin/mpic++ -c library/lib.cpp -o library/lib.o -std=c++11
+	ar cr library/lib.a library/lib.o
+	/home/jobryan/bin/mpic++ -c bi_ana.cpp -I library -std=c++11
+	/home/jobryan/bin/mpic++ -o bi_ana bi_ana.o -L library -l lib -std=c++11
+
+	/home/jobryan/bin/mpic++ bi_ana.cpp -o bi_ana -std=c++11
+
+clean:
+	rm -f bi_ana.o
+	rm -f library/lib.a
+	rm -f library/lib.o

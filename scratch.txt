@@ -1,0 +1,43 @@
+na_ell = np.arange(i_lmax) + 2.
+na_ell_trunc = np.loadtxt('../output/ell_out_%i_rsteps_%i_Lsteps_%i_lmax_1_gnl_0_tnl_kl31.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl31_ana_gnl = np.loadtxt('../output/kl_31_ana_%i_rsteps_%i_Lsteps_%i_lmax_1_gnl_0_tnl.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl31_ana_gnl = np.interp(na_ell, na_ell_trunc, na_kl31_ana_gnl)
+na_kl31_ana_taunl = np.loadtxt('../output/kl_31_ana_%i_rsteps_%i_Lsteps_%i_lmax_0_gnl_1_tnl.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl31_ana_taunl = np.interp(na_ell, na_ell_trunc, na_kl31_ana_taunl)
+na_kl31_ana_11 = np.loadtxt('../output/kl_31_ana_%i_rsteps_%i_Lsteps_%i_lmax_1_gnl_1_tnl.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl31_ana_11 = np.interp(na_ell, na_ell_trunc, na_kl31_ana_11)
+na_kl31_ana_cross = na_kl31_ana_11 - na_kl31_ana_gnl - na_kl31_ana_taunl
+
+na_kl22_ana_gnl = np.loadtxt('../output/kl_22_ana_%i_rsteps_%i_Lsteps_%i_lmax_1_gnl_0_tnl.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl22_ana_gnl = np.interp(na_ell, na_ell_trunc, na_kl22_ana_gnl)
+na_kl22_ana_taunl = np.loadtxt('../output/kl_22_ana_%i_rsteps_%i_Lsteps_%i_lmax_0_gnl_1_tnl.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl22_ana_taunl = np.interp(na_ell, na_ell_trunc, na_kl22_ana_taunl)
+na_kl22_ana_11 = np.loadtxt('../output/kl_22_ana_%i_rsteps_%i_Lsteps_%i_lmax_1_gnl_1_tnl.dat' % (i_rsteps, i_Lsteps, i_lmax))
+na_kl22_ana_11 = np.interp(na_ell, na_ell_trunc, na_kl22_ana_11)
+na_kl22_ana_cross = na_kl22_ana_11 - na_kl22_ana_gnl - na_kl22_ana_taunl
+
+plt.plot(np.abs(na_kl31_ana_cross), label=r'$K_{\ell,cross}^{(3,1)}$'); 
+plt.plot(np.abs(na_kl31_ana_11), label=r'$K_{\ell,11}^{(3,1)}$'); 
+plt.plot(np.abs(na_kl31_ana_taunl), label=r'$K_{\ell,\tau_{NL}}^{(3,1)}$'); 
+plt.plot(np.abs(na_kl31_ana_gnl), label=r'$K_{\ell,g_{NL}}^{(3,1)}$'); 
+plt.yscale('log');
+plt.legend();
+plt.show()
+
+plt.plot(np.abs(na_kl22_ana_cross), label=r'$K_{\ell,cross}^{(2,2)}$'); 
+plt.plot(np.abs(na_kl22_ana_11), label=r'$K_{\ell,11}^{(2,2)}$'); 
+plt.plot(np.abs(na_kl22_ana_taunl), label=r'$K_{\ell,\tau_{NL}}^{(2,2)}$'); 
+plt.plot(np.abs(na_kl22_ana_gnl), label=r'$K_{\ell,g_{NL}}^{(2,2)}$'); 
+plt.yscale('log');
+plt.legend();
+plt.show()
+
+plt.plot(na_ell, (2.*na_ell+1.)*na_kl22_data, label=r'$K_{\ell,data}^{(2,2)}$')
+plt.plot(na_ell, (2.*na_ell+1.)*na_kl31_data, label=r'$K_{\ell,data}^{(3,1)}$')
+plt.xlabel(r'$\ell$', fontsize=20)
+plt.ylabel(r'$(2\ell+1)K_{\ell}$', fontsize=20)
+plt.yscale('symlog')
+plt.legend()
+plt.savefig('plots/sn_klxx_data.png')
+plt.show()
+
